@@ -2,19 +2,42 @@
 -r prod.txt
 
 # Testing
-pytest==2.9.0
-WebTest==2.0.20
-factory-boy==2.6.1
+pytest==2.9.1 --hash=sha256:0d48d27a127644fbe7c8158157e08b35f8255045d4476df694b91eb3a8147e65
+WebTest==2.0.20 --hash=sha256:bb137b96ce300eb4e43377804ed45be87674af7d414c4de46bba4d251bc4602f
+factory_boy==2.6.1 --hash=sha256:b82de0db927b40731ad00a0364f9fb9f66b6917fe6fafa3a92ee848427724128
 
-# Management script
-Flask-Script==2.0.5
+# factory-boy deps
+ipaddress==1.0.16 --hash=sha256:5a3182b322a706525c46282ca6f064d27a02cffbd449f9f47416f1dc96aa71b0
+six==1.10.0 --hash=sha256:105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a
+python-dateutil==2.5.2 --hash=sha256:063907ef47f6e187b8fe0728952e4effb587a34f2dc356888646f9b71fbb2e4b
+fake-factory==0.5.7 --hash=sha256:405db32eaea36eb962e6130e4d0087762d50018b14237b02c8c4fe966d5615b2
+
+# pytest deps
+py==1.4.31 --hash=sha256:a6501963c725fc2554dabfece8ae9a8fb5e149c0ac0a42fd2b02c5c1c57fc114
+
+# webtest deps
+beautifulsoup4==4.4.1 --hash=sha256:87d4013d0625d4789a4f56b8d79a04d5ce6db1152bb65f1d39744f7709a366b4
+waitress==0.8.10 --hash=sha256:7c40c1af0f0c254edb25153621a1e825bc1af2f7bf41a74b4bb8ee6d544ef604
+WebOb==1.6.0 --hash=sha256:63d262d8f61b516321f786879c9277fa2209f7f57eb47b537eeecfea383d55b7
+six==1.10.0 --hash=sha256:105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a
 
 # Lint and code style
-flake8==2.5.4
-flake8-blind-except==0.1.0
-flake8-debugger==1.4.0
-flake8-docstrings==0.2.5
-flake8-isort==1.2
-flake8-quotes==0.2.4
-isort==4.2.2
-pep8-naming==0.3.3
+flake8==2.5.4 --hash=sha256:fb5a67af4024622287a76abf6b7fe4fb3cfacf765a790976ce64f52c44c88e4a
+flake8-blind-except==0.1.0 --hash=sha256:a8599a48d9fff490ce4fa2c6a60ca876c39cc6c107f58068eb831079266b650b
+flake8-debugger==1.4.0 --hash=sha256:5918490f710f1cbbcabd11748558063274b93984ea63744eb712dbcd8d721232
+flake8-docstrings==0.2.5 --hash=sha256:df8d9db44180d1b3976014cc983366ac70260c57f240bb81add71c73da7433a1
+flake8-isort==1.2 --hash=sha256:45137daf38c283c8360c02c01602f3a452360304b5eace303e5bb0e76a0dc84e
+flake8-quotes==0.2.4 --hash=sha256:67a413371401726e8e3a2e297b879401d3e1d7a260f19c83f75c92124c45f9f3
+pep8-naming==0.3.3 --hash=sha256:7b45331e92b78f87787936084270369015a4d932bc80eabcc6316de29955d52c
+
+# flake8 deps
+mccabe==0.4.0 --hash=sha256:9a2b12ebd876e77c72e41ebf401cc2e7c5b566649d50105ca49822688642207b
+pep8==1.7.0 --hash=sha256:a113d5f5ad7a7abacef9df5ec3f2af23a20a28005921577b15dd584d099d5900
+pyflakes==1.0.0 --hash=sha256:f39e33a4c03beead8774f005bd3ecf0c3f2f264fa0201de965fce0aff1d34263
+
+# flake8-isort deps
+isort==4.2.2 --hash=sha256:3ad243ad738b2f9a58005ac44b13a3c297b0201327edaec32c245b5bc66d27ee
+testfixtures==4.9.1 --hash=sha256:e45eef63eb39e63f689ec9d25f03b9bcc201b15e6411f3b73cfe4d0611ad5e1d
+
+# flake8-docstrings deps
+pep257==0.7.0 --hash=sha256:f3d67547f5617a9cfeb4b8097ed94a954888315defaf6e9b518ff1719363bf03

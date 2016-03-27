@@ -1,38 +1,61 @@
 # Everything needed in production
 
-# Flask
-Flask==0.10.1
-MarkupSafe==0.23
-Werkzeug==0.11.4
-Jinja2==2.8
-itsdangerous==0.24
+Flask==0.10.1 --hash=sha256:4c83829ff83d408b5e1d4995472265411d2c414112298f2eb4b359d9e4563373
+Flask-SQLAlchemy==2.1 --hash=sha256:c5244de44cc85d2267115624d83faef3f9e8f088756788694f305a5d5ad137c5
+feedparser==5.2.1 --hash=sha256:ce875495c90ebd74b179855449040003a1beb40cd13d5f037a0654251e260b02
+Flask-Migrate==1.8.0 --hash=sha256:e85b06a96a25a5d917cff106386a4c1fe853a4bd2d0df31c3332f2a4788d9e5c
+Flask-WTF==0.12 --hash=sha256:99c5d75663d6bfcbf4dd0d71ffcb7313f64ae90e6f89e09ad99080107033e8b6 --hash=sha256:bd99316c97ed1d1cb90b8f0c242c86420a891a6a2058f20717e424bf5b0bb80e
+Flask-Assets==0.11 --hash=sha256:6e67a887bfd0dc5b27265fd1357b02da66d1b6e1112217cf909843fefc4b45ef
+cssmin==0.2.0 --hash=sha256:e012f0cc8401efcf2620332339011564738ae32be8c84b2e43ce8beaec1067b6
+jsmin==2.2.1 --hash=sha256:df7fe41d6de1df42cb5dcfdefe1d7285b584ec6f2a714f6c05f6e6dbacff7f71
+opml==0.5 --hash=sha256:db1eef2a251b8af33e2eabb62baf922006dbd8c66c742931090e331a0362a770
 
-# Database
-Flask-SQLAlchemy==2.1
-# psycopg2==2.6.1
-SQLAlchemy==1.0.12
+# opml deps
+lxml==3.6.0 --hash=sha256:9c74ca28a7f0c30dca8872281b3c47705e21217c8bc63912d95c9e2a7cac6bdf
+setuptools==20.3.1 --hash=sha256:a1b3f74a1dc7c81368f2bc28a34366cfa6ffe80cdee1451261aabfba1ae1f4a8
 
-# Migrations
-Flask-Migrate==1.8.0
+# flask deps
+itsdangerous==0.24 --hash=sha256:cbb3fcf8d3e33df861709ecaf89d9e6629cff0a217bc2848f1b41cd30d360519
+Jinja2==2.8 --hash=sha256:1cc03ef32b64be19e0a5b54578dd790906a34943fe9102cfdae0d4495bd536b4 --hash=sha256:bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4
+Werkzeug==0.11.4 --hash=sha256:7db3cb2d4725be0680abf64a45b18229186f03ad8b9989abbe053f9357b17b37 --hash=sha256:e48fb7e3f2bb5a740dd9a666624699a4d83e2e028555f9c46bcc8ecfc2cd8c32
 
-# Forms
-Flask-WTF==0.12
-WTForms==2.1
+# Jinja2 deps
+MarkupSafe==0.23 --hash=sha256:a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3
+
+# Flask-sqlalchemy deps
+SQLAlchemy==1.0.12 --hash=sha256:6679e20eae780b67ba136a4a76f83bb264debaac2542beefe02069d0206518d1
+
+# flask-migrate deps
+alembic==0.8.5 --hash=sha256:de8ca3b1d806cd39bf8a21d90f5c5822a2173b721ec20f868da38edd45b58cb2
+Flask-Script==2.0.5 --hash=sha256:cef76eac751396355429a14c38967bb14d4973c53e07dec94af5cc8fb017107f
+
+# flask-wtf deps
+WTForms==2.1 --hash=sha256:ffdf10bd1fa565b8233380cb77a304cd36fd55c73023e91d4b803c96bc11d46f
 
 # Deployment
-gunicorn==19.4.5
+gunicorn==19.4.5 --hash=sha256:c57f1b005a4b90933303c8deed9bedeb509331aa6a0a990023a5796e52bd8988 --hash=sha256:53b58044764ad79d732af18c580b1a54b724adf4d290ec19c4ca78ab22a1ee0d
 
-# Assets
-Flask-Assets==0.11
-cssmin==0.2.0
-jsmin==2.2.1
+# flask-assets deps
+webassets==0.11.1 --hash=sha256:9f964ce47e99d15cf9228b07417233b6f865d71ab053cf6e446825bcd8f5385c
+
 
 # Auth
-Flask-Login==0.3.2
-Flask-Bcrypt==0.7.1
+Flask-Login==0.3.2 --hash=sha256:e72eff5c35e5a31db1aeca1db5d2501be702674ea88e8f223b5d2b11644beee6
+Flask-Bcrypt==0.7.1 --hash=sha256:d71c8585b2ee1c62024392ebdbc447438564e2c8c02b4e57b56a4cafd8d13c5f
+
+# flask-bcrypt deps
+bcrypt==2.0.0 --hash=sha256:8b2d197ef220d10eb74625dde7af3b10daa973ae9a1eadd6366f763fad4387fa
 
 # Caching
-Flask-Cache==0.13.1
+Flask-Cache==0.13.1 --hash=sha256:90126ca9bc063854ef8ee276e95d38b2b4ec8e45fd77d5751d37971ee27c7ef4
 
 # Debug toolbar
-Flask-DebugToolbar==0.10.0
+Flask-DebugToolbar==0.10.0 --hash=sha256:d10cb2f58c9cc40e8bb8eb7e086cf3a5c18a7d00dab4a1561fe91e3cea92faf3
+
+# Dep deps
+blinker==1.4 --hash=sha256:471aee25f3992bd325afa3772f1063dbdbbca947a041b8b89466dc00d606f8b6
+cffi==1.5.2 --hash=sha256:da9bde99872e46f7bb5cff40a9b1cc08406765efafb583c704de108b6cb821dd
+Mako==1.0.4 --hash=sha256:fed99dbe4d0ddb27a33ee4910d8708aca9ef1fe854e668387a9ab9a90cbf9059
+pycparser==2.14 --hash=sha256:7959b4a74abdc27b312fed1c21e6caf9309ce0b29ea86b591fd2e99ecdf27f73
+python-editor==0.5 --hash=sha256:f65c033ede0758663b9ff6a29d702f0b09198ad7c4ef96c9d37ccdfbf7bbf6fa
+six==1.10.0 --hash=sha256:0ff78c403d9bccf5a425a6d31a12aa6b47f1c21ca4dc2573a7e2f32a97335eb1 --hash=sha256:105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a
