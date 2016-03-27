@@ -24,7 +24,7 @@ import os.path
 filename = sys.argv[1]
 digest = sys.argv[2]
 package_name = os.path.basename(filename.rsplit('-', 1)[0])
-match = re.search('-([0-9\.]+)\.(tar\.gz|\.zip)', filename)
+match = re.search('-([0-9\.]+)\.(tar\.gz|zip)', filename)
 version = match.groups()[0]
 print '%s==%s --hash=sha256:%s' % (package_name, version, digest)
 EOF
