@@ -8,11 +8,10 @@ Flask-WTF==0.12 --hash=sha256:99c5d75663d6bfcbf4dd0d71ffcb7313f64ae90e6f89e09ad9
 Flask-Assets==0.11 --hash=sha256:6e67a887bfd0dc5b27265fd1357b02da66d1b6e1112217cf909843fefc4b45ef
 cssmin==0.2.0 --hash=sha256:e012f0cc8401efcf2620332339011564738ae32be8c84b2e43ce8beaec1067b6
 jsmin==2.2.1 --hash=sha256:df7fe41d6de1df42cb5dcfdefe1d7285b584ec6f2a714f6c05f6e6dbacff7f71
-opml==0.5 --hash=sha256:db1eef2a251b8af33e2eabb62baf922006dbd8c66c742931090e331a0362a770
-
-# opml deps
+requests==2.9.1 --hash=sha256:c577815dd00f1394203fc44eb979724b098f88264a9ef898ee45b8e5e9cf587f
+beautifulsoup4==4.4.1 --hash=sha256:87d4013d0625d4789a4f56b8d79a04d5ce6db1152bb65f1d39744f7709a366b4
 lxml==3.6.0 --hash=sha256:9c74ca28a7f0c30dca8872281b3c47705e21217c8bc63912d95c9e2a7cac6bdf
-setuptools==20.3.1 --hash=sha256:a1b3f74a1dc7c81368f2bc28a34366cfa6ffe80cdee1451261aabfba1ae1f4a8
+feedparser==5.2.1 --hash=sha256:ce875495c90ebd74b179855449040003a1beb40cd13d5f037a0654251e260b02
 
 # flask deps
 itsdangerous==0.24 --hash=sha256:cbb3fcf8d3e33df861709ecaf89d9e6629cff0a217bc2848f1b41cd30d360519
