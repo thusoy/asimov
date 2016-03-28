@@ -22,7 +22,7 @@ Then run the following commands to bootstrap your environment.
 
     git clone https://github.com/thusoy/asimov
     cd asimov
-    pip install -r requirements/dev.txt
+    pip install -r requirements/dev.txt --require-hashes --no-dependencies
     bower install
     python manage.py server
 
