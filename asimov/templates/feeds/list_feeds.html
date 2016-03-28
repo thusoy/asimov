@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Welcome {{ session.username }}</h1>
+
+    {% for feed in feeds %}
+
+        <div>
+            <h2>
+                {{ feed.title }}
+            </h2>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}
+

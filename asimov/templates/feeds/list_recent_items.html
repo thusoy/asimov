@@ -1,0 +1,20 @@
+{% from '_formhelpers.html' import render_field %}
+
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Welcome {{ session.username }}</h1>
+
+    <form method="post" action="{{ url_for('.subscribe_to_feed') }}">
+        {{ render_field(feed_form.url ) }}
+        <input type="submit" value="Subscribe">
+    </form>
+
+    {% for item in feed_items %}
+
+        <div>
+            <h2>{{ item.title }}</h2>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}

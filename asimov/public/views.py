@@ -18,20 +18,23 @@ def load_user(user_id):
     return User.get_by_id(int(user_id))
 
 
-@blueprint.route('/', methods=['GET', 'POST'])
+@blueprint.route('/wat')
 def home():
-    """Home page."""
     form = LoginForm(request.form)
-    # Handle logging in
-    if request.method == 'POST':
-        if form.validate_on_submit():
-            login_user(form.user)
-            flash('You are logged in.', 'success')
-            redirect_url = request.args.get('next') or url_for('user.members')
-            return redirect(redirect_url)
-        else:
-            flash_errors(form)
     return render_template('public/home.html', form=form)
+
+
+@blueprint.route('/login', methods=['POST'])
+def login():
+    form = LoginForm(request.form)
+    if form.validate_on_submit():
+        login_user(form.user)
+        flash('You are logged in.', 'success')
+        redirect_url = request.args.get('next') or url_for('user.members')
+        return redirect(redirect_url)
+    else:
+        flash_errors(form)
+        return render_template('public/home.html', form=form)
 
 
 @blueprint.route('/logout/')

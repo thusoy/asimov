@@ -2,7 +2,7 @@
 """The app module, containing the app factory function."""
 from flask import Flask, render_template
 
-from asimov import public, user
+from asimov import public, user, feeds
 from asimov.assets import assets
 from asimov.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate
 from asimov.settings import ProdConfig
@@ -31,14 +31,13 @@ def register_extensions(app):
     login_manager.init_app(app)
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
-    return None
 
 
 def register_blueprints(app):
     """Register Flask blueprints."""
     app.register_blueprint(public.views.blueprint)
     app.register_blueprint(user.views.blueprint)
-    return None
+    app.register_blueprint(feeds.mod)
 
 
 def register_errorhandlers(app):
@@ -50,4 +49,3 @@ def register_errorhandlers(app):
         return render_template('{0}.html'.format(error_code)), error_code
     for errcode in [401, 404, 500]:
         app.errorhandler(errcode)(render_error)
-    return None

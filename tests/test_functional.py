@@ -10,9 +10,7 @@ from asimov.user.models import User
 from .factories import UserFactory
 
 
-class TestLoggingIn:
-    """Login."""
-
+class TestLoggingIn(object):
     def test_can_log_in_returns_200(self, user, testapp):
         """Login successful."""
         # Goes to homepage

@@ -11,7 +11,8 @@ from flask_wtf.csrf import CsrfProtect
 bcrypt = Bcrypt()
 csrf_protect = CsrfProtect()
 login_manager = LoginManager()
-db = SQLAlchemy()
+#TODO: expire_on_commit is mostly relevant for testing, maybe not set in prod?
+db = SQLAlchemy(session_options={'expire_on_commit': False})
 migrate = Migrate()
 cache = Cache()
 debug_toolbar = DebugToolbarExtension()
