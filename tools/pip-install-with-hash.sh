@@ -1,4 +1,10 @@
-#!/bin/bash
+#!/bin/sh
+
+# Install and get hash in one step
+#
+# Downloads the packages to a temporary directory, gets the hash of the
+# package and all dependencies, extracts the package names and prints
+# a requirements.txt compatible string with the hash
 
 set -e
 
@@ -16,7 +22,7 @@ install_and_get_hash () {
     pip download "$dep" --no-binary :all: -d "$dest" --quiet
     find "$dest" -type f | while read file; do
         digest=$(sha256sum "$file" | cut -d" " -f1)
-        python <(cat <<EOF
+        cat <<EOF | python - "$file" "$digest"
 import re
 import sys
 import os.path
@@ -31,7 +37,6 @@ if match is None:
 version = match.groups()[0]
 print '%s==%s --hash=sha256:%s' % (package_name, version, digest)
 EOF
-        ) "$file" "$digest"
         pip install "$file" --quiet
     done
 
