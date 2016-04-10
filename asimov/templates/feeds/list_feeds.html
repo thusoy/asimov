@@ -1,4 +1,7 @@
+{% from '_formhelpers.html' import csrf %}
+
 {% extends "layout.html" %}
+
 {% block content %}
     <h1>Welcome {{ session.username }}</h1>
 
@@ -8,6 +11,10 @@
             <h2>
                 {{ feed.title }}
             </h2>
+            <form method="post" action="{{ url_for('.feed_details', feed_id=feed.id) }}?method=delete">
+                {{ csrf() }}
+                <input type="submit" value="Unsubscribe">
+            </form>
         </div>
 
     {% endfor %}

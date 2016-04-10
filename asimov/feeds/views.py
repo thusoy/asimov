@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """User views."""
-from flask import Blueprint, render_template, request, url_for, flash, redirect
+from flask import Blueprint, render_template, request, url_for, flash, redirect, abort
 from flask_login import login_required
+from asimov.extensions import db
 import requests
 import bs4
 
@@ -67,10 +68,23 @@ def subscribe_to_feed():
         return render_template('public/home.html', form=form), 400
 
 
-@mod.route('/feeds/<int:feed_id>')
+@mod.route('/feeds/<int:feed_id>', methods=['GET', 'POST', 'DELETE'])
 @login_required
-def show_feed(feed_id):
-    feed = None
+def feed_details(feed_id):
+    feed = Feed.query.get_or_404(feed_id)
+    method = request.method
+
+    if method == 'POST':
+        # check for override
+        override_method = request.args.get('method', '').upper()
+        if override_method == 'DELETE':
+            method = override_method
+        else:
+            abort(504)
+
+    if method == 'DELETE':
+        feed.delete()
+        return redirect(url_for('.show_feeds'))
 
 
 @mod.route('/feeds/update', methods=['POST'])
