@@ -39,7 +39,12 @@ def subscribe_to_feed():
             flash('Server at %s didn\'t respond, if you\'re sure the URL is correct'
                 ' you should try again in a moment' % feed_url)
             return render_template('feeds/list_recent_items.html', feed_form=form), 503
-        remote_content_type = response.headers.get('content-type')
+        remote_content_type = response.headers.get('content-type', '')
+
+        if ';' in remote_content_type:
+            # trim charset and similar
+            remote_content_type = remote_content_type.split(';')[0]
+
         rss_content_types = (
             'application/rss+xml',
             'text/xml',
