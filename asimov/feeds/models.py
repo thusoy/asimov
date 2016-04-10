@@ -59,7 +59,7 @@ class FeedItem(SurrogatePK, Model):
     title = Column(db.String(128), nullable=False)
     summary = Column(db.Text, nullable=True)
     source_url = Column(db.String(512), nullable=False)
-    has_been_read = Column(db.Boolean, nullable=False, default=False)
+    has_been_read = Column(db.Boolean, nullable=False, server_default='0', default=False)
     author = Column(db.String(128))
     #: Content as given directly in the feed
     feed_content = Column(db.Text, nullable=True)
