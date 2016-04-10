@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import datetime
-from time import mktime
 
 from flask_wtf import Form
 from wtforms import PasswordField, StringField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, URL
 import feedparser
 import requests
+import time
 
 from asimov.database import Column, Model, SurrogatePK, db, relationship
 
@@ -32,16 +32,25 @@ class Feed(SurrogatePK, Model):
         feed = feedparser.parse(raw_feed.content)
         feed_author = feed.feed.get('author')
         # self.title = feed.title
-        print 'feed', pprint.pprint(feed.feed)
         # print 'items', feed['items']
         for item in feed['items']:
-            # print 'item', item
+            # TODO: sanitize summary
+            summary = item['summary']
             author = item.get('author') or feed_author
-            updated_ts = mktime(item.updated_parsed)
+            updated_ts = time.mktime(item.updated_parsed) if hasattr(item, 'updated_parsed') else time.time()
             updated_date = datetime.datetime.fromtimestamp(updated_ts)
             # published_date = item.get('published') or item.updated
-            FeedItem.create(title=item.title, source_url=item.link,
-                updated_date=updated_date, author=author)
+            title = item.title if hasattr(item, 'title') else ' '.join(summary.split()[:6])
+            # check if the item has already been stored
+            feed_item = FeedItem.query.filter_by(feed_id=self.id, source_url=item.link).one_or_none()
+            if feed_item:
+                feed_item.title = title
+                feed_item.updated_date = updated_date
+                feed_item.summary = summary
+            else:
+                FeedItem.create(title=title, source_url=item.link,
+                    updated_date=updated_date, author=author, summary=summary,
+                    feed_id=self.id)
 
 
 class FeedItem(SurrogatePK, Model):
