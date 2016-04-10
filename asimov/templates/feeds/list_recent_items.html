@@ -1,12 +1,24 @@
-{% from '_formhelpers.html' import render_field %}
+{% from '_formhelpers.html' import render_field, csrf %}
 
 {% extends "layout.html" %}
 {% block content %}
     <h1>Welcome {{ session.username }}</h1>
 
     <form method="post" action="{{ url_for('.subscribe_to_feed') }}">
+        {{ csrf() }}
         {{ render_field(feed_form.url ) }}
         <input type="submit" value="Subscribe">
+    </form>
+
+    <form method="post" action="{{ url_for('.update_feeds') }}">
+        {{ csrf() }}
+        <input type="submit" value="Update feeds">
+    </form>
+
+    <form method="post" action="{{ url_for('.delete_all_items') }}">
+        {{ csrf() }}
+        <input type="submit" value="Delete all items">
+
     </form>
 
     {% for item in feed_items %}
