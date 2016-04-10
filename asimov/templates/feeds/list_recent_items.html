@@ -25,6 +25,9 @@
 
         <div>
             <h2>{{ item.title }}</h2>
+            <p>
+                {{ item.summary|safe }}
+            </p>
         </div>
 
     {% endfor %}
