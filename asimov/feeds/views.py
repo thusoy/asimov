@@ -93,6 +93,15 @@ def feed_details(feed_id):
         return redirect(url_for('.show_feeds'))
 
 
+@mod.route('/feed/delete-all-items', methods=['POST'])
+@login_required
+def delete_all_items():
+    for item in FeedItem.query.all():
+        item.delete()
+    flash('All items purged', 'success')
+    return redirect(url_for('.show_recent_items'))
+
+
 @mod.route('/feeds/update', methods=['POST'])
 @login_required
 def update_feeds():
