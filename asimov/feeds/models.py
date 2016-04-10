@@ -70,7 +70,7 @@ class FeedItem(SurrogatePK, Model):
     content = Column(db.Text, nullable=True)
     published_date = Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
     updated_date = Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
-    feed_id = db.Column(db.Integer, db.ForeignKey('feeds.id'))
+    feed_id = db.Column(db.Integer, db.ForeignKey('feeds.id'), nullable=False)
     feed = relationship('Feed', backref=db.backref('items', lazy='dynamic', cascade='all,delete'))
 
 

@@ -80,8 +80,8 @@ def testfeed(db):
     feed = Feed(title='Sample Feed', url='http://example.com/feed')
     db.session.add(feed)
     for item in range(3):
-        feed_item = FeedItem(title='Item %d' % item, source_url='http://example.com/item%d' % item,
-            )
+        feed_item = FeedItem(title='Item %d' % item, feed=feed,
+            source_url='http://example.com/item%d' % item)
         db.session.add(feed_item)
     db.session.commit()
     return feed
