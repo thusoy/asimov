@@ -29,6 +29,7 @@ def show_feeds():
 
 
 @mod.route('/feeds', methods=['POST'])
+@login_required
 def subscribe_to_feed():
     form = FeedForm(request.form)
     if form.validate_on_submit():
